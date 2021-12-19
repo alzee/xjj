@@ -18,6 +18,9 @@ pwd=$(dirname $0)
 
 sum=$(sudo grep -w $word $logfile | tail -1 | md5sum | awk '{print $1}')
 
+# If empty, exit
+[ "$sum" = d41d8cd98f00b204e9800998ecf8427e ] && exit
+
 # echo $sum
 
 sum0=$(redis-cli get sum0)
