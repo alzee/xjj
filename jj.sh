@@ -34,7 +34,6 @@ if [ "$sum" != "$sum0" ]; then
         echo date0 updated.
         redis-cli set date0 $date
 
-        # Run php sms code
         echo Run php sms code...
         cd $dir
         php SendTemplateSMS.php
