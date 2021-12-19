@@ -7,11 +7,13 @@
 ############### Functions ###############
 
 ############### Main Part ###############
-word=jj
-intv=20
-# logfile=x_access.log
-logfile=/var/log/apache2/x_access.log
-dir=/home/al/w/php-sms-sdk/Demo/
+. .env
+. .env.local
+
+#echo $word
+#echo $intv
+#echo $logfile
+#echo $dir
 
 sum=$(sudo grep -w $word $logfile | tail -1 | md5sum | awk '{print $1}')
 
