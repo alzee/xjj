@@ -7,8 +7,9 @@
 ############### Functions ###############
 
 ############### Main Part ###############
-. .env
-. .env.local
+pwd=$(dirname $0)
+. $pwd/.env
+. $pwd/.env.local
 
 #echo $word
 #echo $intv
