@@ -18,12 +18,12 @@ pwd=$(dirname $0)
 
 sum=$(sudo grep -w $word $logfile | tail -1 | md5sum | awk '{print $1}')
 
-echo $sum
+# echo $sum
 
 sum0=$(redis-cli get sum0)
 
 if [ "$sum" != "$sum0" ]; then
-    echo sum0 updated.
+    echo sum0 updated. New visit.
     redis-cli set sum0 $sum
 
     date=$(date +%s)
