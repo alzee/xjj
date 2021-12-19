@@ -9,10 +9,11 @@
 ############### Main Part ###############
 word=jj
 intv=20
-logfile=x_access.log
-dir=
+# logfile=x_access.log
+logfile=/var/log/apache2/x_access.log
+dir=/home/al/w/php-sms-sdk/Demo/
 
-sum=$(grep -w $word $logfile | tail -1 | md5sum | awk '{print $1}')
+sum=$(sudo grep -w $word $logfile | tail -1 | md5sum | awk '{print $1}')
 
 echo $sum
 
@@ -32,6 +33,8 @@ if [ "$sum" != "$sum0" ]; then
 
         # Run php sms code
         echo Run php sms code...
+        cd $dir
+        php SendTemplateSMS.php
     fi
     echo $diff
 fi 
